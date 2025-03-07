@@ -3,6 +3,8 @@ import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import * as z from 'zod'
 
+const router = useRouter()
+
 const formSchema = toTypedSchema(z.object({
   name: z.string().min(1),
   email: z.string().email(),
@@ -13,8 +15,17 @@ const form = useForm({
   validationSchema: formSchema,
 })
 
-const onSubmit = form.handleSubmit((values) => {
-  console.log('Form submitted!', values)
+const onSubmit = form.handleSubmit(async (values) => {
+  await authClient.signUp.email({
+    email: values.email,
+    password: values.password,
+    name: values.name,
+  }, {
+    onSuccess: () => {
+      router.push('/')
+    },
+    onError: () => {},
+  })
 })
 </script>
 

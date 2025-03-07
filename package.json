@@ -1,21 +1,28 @@
 {
   "name": "nuxt-app",
-  "private": true,
   "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.5.2+sha256.79a98daa90248b50815e31460790f118c56fe099113370826caa0153be6daba5",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
     "@nuxt/icon": "1.10.3",
     "@nuxt/image": "^1.9.0",
+    "@tanstack/vue-query": "^5.67.1",
     "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^12.8.2",
+    "better-auth": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.40.0",
     "lucide-vue-next": "^0.477.0",
     "nuxt": "^3.15.4",
     "reka-ui": "^2.0.2",
@@ -31,6 +38,7 @@
     "@antfu/eslint-config": "^4.6.0",
     "@iconify-json/devicon": "^1.2.18",
     "@nuxtjs/tailwindcss": "^6.13.1",
+    "drizzle-kit": "^0.30.5",
     "eslint": "^9.21.0",
     "typescript": "^5.8.2"
   }
